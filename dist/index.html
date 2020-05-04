@@ -9,12 +9,43 @@
 <body>
     
 
-    <input type="text" id="inputTeam">
-    <button id="getBtn">Get Rooster</button>
-    
+
+    <!-- <input type="text" id="inputTeam"> -->
+    <div id="head">
+        <select id="inputTeam">
+            <option value="lakers">lakers</option>
+            <option value="warriors">warriors</option>
+            <option value="heat">heat</option>
+            <option value="suns">suns</option>
+            <option value="wizards">wizards</option>
+            <option value="raptors">raptors</option>
+            <option value="spurs">spurs</option>
+            <option value="rockets">rockets</option>
+
+        </select>
+        <button id="getBtn">Get Rooster</button>
+        <button id="getDreamTeamBtn">Dream Team</button>
+    </div>
+
+    <hr>
+
+    <div id="players-conatainer"></div>
 
 
 
+
+
+    <script type=:text/x-handlebars-template id="player-info-template">
+            <div class="player" id={{name}}>
+                <p>{{name}}</p>
+                <p>{{number}}</p>
+                <img src="{{imgURL}}" alt="">
+                <p>{{position}}</p>
+            </div>
+    </script>
+
+
+    <script src="/handlebars/dist/handlebars.js"></script>
     <script src="/jquery/dist/jquery.js"></script>
     <script src="main.js"></script>
 </body>

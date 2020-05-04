@@ -1,0 +1,49 @@
+/* body{
+    background-color: #95a5a6;
+} */
+
+select{
+    width: 400px;
+    height: 35px;
+    font-size: larger;
+    margin-left: 10px;
+}
+
+button{
+    height: 35px;
+    width: 160px;
+    font-size: small;
+}
+
+#players-conatainer{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(auto,1fr);
+    row-gap: 10px;
+    column-gap: 10px;
+}
+
+p{
+    text-align: center;
+}
+
+
+.player{
+    border: black 3px solid;
+    border-radius: 5%;
+    background-color: #7f8c8d;
+
+}
+
+.dreamTeam{
+    background-color: #f1c40f;
+}
+
+#head{
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+hr{
+    width: 100vw;
+}
