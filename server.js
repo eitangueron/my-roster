@@ -18,10 +18,6 @@ app.use(express.static(path.join(__dirname,'node_modules')))
 
 
 
-
-
-
-
 const port = 3000
 app.listen(port, function(){
     console.log('port is live and strong')

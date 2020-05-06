@@ -14,29 +14,31 @@ const teamToIDs = {
     "rockets": "1610612745"
 }
 
+
 const dreamTeam = []   //max 5
 
+let teamsData
+
+urllib.request('http://data.nba.net/10s/prod/v1/2018/players.json',function(err,response){
+    teamsData = JSON.parse(response.toString()).league.standard
+})
 
 
 router.get('/teams/:teamName',function(req,res){
     const teamName = req.params.teamName
-    // console.log(teamName)
-    urllib.request('http://data.nba.net/10s/prod/v1/2018/players.json', function(err, response){
-        const data = JSON.parse(response.toString()).league.standard
-        const relevantData = data.filter(player=> player.isActive === true && player.teamId === teamToIDs[teamName])
-        relevantData.forEach(player => player.imgURL = `https://nba-players.herokuapp.com/players/${player.lastName}/${player.firstName}`)
-        res.send(relevantData)
-    })
+    const requestedTeamData = teamsData.filter(player=> player.isActive && player.teamId === teamToIDs[teamName])
+    .map(player => ({firstName:player.firstName, lastName:player.lastName,jersey: player.jersey, pos:player.pos}))
+    requestedTeamData.forEach(player => player.imgURL = `https://nba-players.herokuapp.com/players/${player.lastName}/${player.firstName}`)
+    res.send(requestedTeamData)
 },)
 
 
 
 router.put('/team/:teamName/:teamId',function(req,res){
-    const name = req.params.teamName
-    const id = req.params.teamId
-    teamToIDs[name] = id
-    console.log(teamToIDs)
-    res.send(`Added ${name} with id ${id} successfully to teamIdBank`)
+    const teamName = req.params.teamName
+    const teamId = req.params.teamId
+    teamToIDs[teamName] = teamId
+    res.send(`Added ${teamName} with id ${teamId} successfully to teamIdBank`)
 })
 
 
@@ -48,9 +50,13 @@ router.get('/dreamTeam',function(req,res){
 
 router.post('/roster',function(req,res){
     if(dreamTeam.length <5){
-        const player = req.body.
-        dreamTeam.push(player)
-        res.send('Added Successfully!')
+        const player = req.body.dreamPlayerKey
+        if(!dreamTeam.includes(player)){
+            dreamTeam.push(player)
+            res.send('Added to your dream team!')
+        } else {
+            res.send('This player is already in dream team')
+        }
     } else {
         res.send('Team full')
     }
@@ -58,4 +64,28 @@ router.post('/roster',function(req,res){
 
 
 
+router.get('/playerStats/:player',function(req,res){
+    const player = req.params.player
+    const playerFirstName = player.split(' ')[0]
+    const playerLastName = player.split(' ')[1]
+    urllib.request(`https://nba-players.herokuapp.com/players-stats/${playerLastName}/${playerFirstName}`,function(err,response){
+        res.send(response)
+    })
+})
+
+
 module.exports = router
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// const responsed = response.toString()
+// console.log(responsed)
+// console.log(typeof responsed)
+// if(responsed==="Sorry, that player was not found. Please check the spelling."){
+//     res.send({games_played:'unKnown', player_efficiency_rating:'unKnown'})
+// } else{
+//     res.send(responsed)
+// }
+// // c

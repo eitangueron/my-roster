@@ -12,6 +12,7 @@
 
     <!-- <input type="text" id="inputTeam"> -->
     <div id="head">
+        <h1>Creat Your Dream Team! </h1>
         <select id="inputTeam">
             <option value="lakers">lakers</option>
             <option value="warriors">warriors</option>
@@ -33,20 +34,28 @@
 
 
 
-
-
     <script type=:text/x-handlebars-template id="player-info-template">
-            <div class="player" id={{name}}>
-                <p>{{name}}</p>
+            <div class="player" id="{{name}}">
+                <p class="name">{{name}}</p>
                 <p>{{number}}</p>
-                <img src="{{imgURL}}" alt="">
+                <div class="player-info-container">
+                    <div class='player-info'>
+                        <div class='player-pic'><img src="{{imgURL}}" onerror=getDegaultImg(this)></div>
+                        <div class='player-stats'>
+                            <p>Games played: {{games_played}}</p>
+                            <p>Efficiency rating:{{player_efficiency_rating}}</p>
+                        </div>
+                    </div>
+                </div>
                 <p>{{position}}</p>
+                <button class='saveToDreamTeamBtn'>Dream Team</button>
             </div>
     </script>
-
-
+    <!-- <button class='saveBtn'>Save</button> -->
+    
     <script src="/handlebars/dist/handlebars.js"></script>
     <script src="/jquery/dist/jquery.js"></script>
+    <script src="Renderer.js"></script>
     <script src="main.js"></script>
 </body>
 </html>

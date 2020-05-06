@@ -1,34 +1,31 @@
-const source = $('#player-info-template').html()
-const template = Handlebars.compile(source)
+const getDegaultImg = function(img){
+    img.src = 'https://i.pinimg.com/originals/a0/b1/46/a0b146c880ff8e95d1d8fa84d2d656c7.jpg'
+}
+
+const renderer = new Renderer()
+
 
 $('#getBtn').click(function(){
     const teamName = $('#inputTeam').val()
     $.get(`/teams/${teamName}`, function(result){
-    //    console.log(result)
-       $('#players-conatainer').empty()
-       result.forEach(function(player){
-           newHTML = template({name: player.firstName + " " + player.lastName,number: player.jersey,position: player.pos, imgURL: player.imgURL})
-           $('#players-conatainer').append(newHTML)
-       })
+        renderer.renderTeam(result)
     })
-
 })
+
 
 
 $('#getDreamTeamBtn').click(function(){
-    $('#players-conatainer').empty()
-    $.get('/dreamTeam',function(dreamTeam){
-        dreamTeam.forEach(function(player){
-        $('#players-conatainer').append(`<div class='player dreamTeam'>${player}</div>`)
-        })
+    $.get('/dreamTeam',function(response){
+        renderer.renderDreamTeam(response)
     })
 })
 
 
-$('#players-conatainer').on('click','.player',function(){
-    const playerDiv = $(this).html()
-    const data = {player:playerDiv}
-    $.post('/roster',data,function(response){
+
+$('#players-conatainer').on('click','.saveToDreamTeamBtn',function(){
+    const dreamPlayer = $(this).closest('.player').html()
+    const dataOfPlayer = {dreamPlayerKey : dreamPlayer}
+    $.post('/roster',dataOfPlayer,function(response){
         alert(response)
     })
 })
