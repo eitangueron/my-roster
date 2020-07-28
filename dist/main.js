@@ -14,8 +14,8 @@ $('#getBtn').click(function(){
 
 
 
-$('#getDreamTeamBtn').click(function(){
-    $.get('/dreamTeam',function(response){
+$('#getDreamTeamBtn').click(async function(){
+    await $.get('/dreamTeam',function(response){
         renderer.renderDreamTeam(response)
     })
 })
@@ -29,3 +29,4 @@ $('#players-conatainer').on('click','.saveToDreamTeamBtn',function(){
         alert(response)
     })
 })
+

@@ -76,16 +76,3 @@ router.get('/playerStats/:player',function(req,res){
 
 module.exports = router
 
-
-
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////
-// const responsed = response.toString()
-// console.log(responsed)
-// console.log(typeof responsed)
-// if(responsed==="Sorry, that player was not found. Please check the spelling."){
-//     res.send({games_played:'unKnown', player_efficiency_rating:'unKnown'})
-// } else{
-//     res.send(responsed)
-// }
-// // c
