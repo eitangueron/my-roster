@@ -8,10 +8,8 @@ My roster is a project I created during my fullstack bootcamp at elevation acade
 - [My Roster](#MyRoster)
   * [Running the project](#running-the-project)
   * [Screenshots](#screenshots)
-    + [Expense-List](#expense-list)
-    + [Add Expense](#add-expense)
-    + [Reports](#reports)
-    + [Menu](#menu)
+    + [Get Roster](#GetRoster)
+    + [Dream Team](#DreamTeam)
   * [Tech Stack](#tech-stack)
 
 
