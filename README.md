@@ -1,6 +1,8 @@
 # My Roster
 
-My roster is a project I created during my fullstack bootcamp at elevation academy if you're into NBA you'll enjoy it (tho it's updated to 2017/18). It is a front and back end project (without usage of DB - it was mid course), simple but cute with nice *css flip card effect* i like and usage of APIs.
+My roster is a project I created during my fullstack bootcamp at elevation academy if you're into NBA you'll enjoy it!
+
+ It is an OOP MVC front and back end project (without usage of DB - it was mid course), simple but cute with nice *css flip card effect* i like and usage of APIs.
 
 <!-- Demo: [https://react-bank-eitang.herokuapp.com/](https://react-bank-eitang.herokuapp.com/) -->
 
