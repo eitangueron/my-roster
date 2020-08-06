@@ -25,7 +25,7 @@ My roster is a project I created during my fullstack bootcamp at elevation acade
 ## Screenshots
 
 ### Get Roster
-Pick a team from the select button, and click the *Get Roster* button, this will make an API call and render the teams players, if you hover on the players pictures it will flip and you'll see some stats on the player. if you fancy adding the player to your drean team - click the button ! Pick wisley you're linited to 5. ;) 
+Pick a team from the select button, and click the *Get Roster* button, this will make an API call and render the teams players, if you hover on the players pictures it will flip and you'll see some stats on the player. if you fancy adding the player to your drean team - click the button ! Pick wisely you're limited to 5. ;) 
 
 <p align="center"><img src="imgs4reaadme/regPage.png" width="500" /></p>
 
@@ -36,7 +36,7 @@ By clicking the *Dream Team* button you'll be redirected to a page with all your
 <p align="center"><img src="imgs4reaadme/drmTeamPage.png" width="500" /></p>
 
 
-## Techstack
+## Tech stack
 1. JQuery & Handlebars. 
 2. Express (Node.js).
 3. NBA players API
